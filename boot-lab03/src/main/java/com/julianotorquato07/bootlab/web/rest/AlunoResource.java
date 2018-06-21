@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.julianotorquato07.bootlab.model.Aluno;
 
+
+
+
+
+
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(path = "/api/v1",
+	method = RequestMethod.GET,
+	produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+//@RestController
+//@RequestMapping("/api/v1")
 public class AlunoResource {
 
 	private final Logger log = LoggerFactory.getLogger(AlunoResource.class);
@@ -52,13 +63,13 @@ public class AlunoResource {
 	}
 
 	@GetMapping("/alunos")
-	public ResponseEntity<List<Aluno>> getAllAnexoArquivos() {
+	public ResponseEntity<List<Aluno>> getAllAlunos() {
 		log.debug("REST request to get Alunos ");
 		return new ResponseEntity<>(Collections.EMPTY_LIST, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/alunos")
-    public ResponseEntity<Void> deleteAnexoArquivo(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAnexoAluno(@PathVariable Long id) {
         log.debug("REST request to delete Alunos : {}", id);
         
         Aluno aluno = new Aluno();
