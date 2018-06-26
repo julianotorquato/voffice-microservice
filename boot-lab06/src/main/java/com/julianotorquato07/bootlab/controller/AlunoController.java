@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,6 +65,7 @@ public class AlunoController {
 	}
 
 	@GetMapping("/alunos")
+	@Secured("ROLE_USER")
 	public ResponseEntity<List<Aluno>> getAllAlunos() {
 		log.debug("REST request to get Alunos ");
 		return new ResponseEntity<>(Collections.EMPTY_LIST, HttpStatus.OK);
