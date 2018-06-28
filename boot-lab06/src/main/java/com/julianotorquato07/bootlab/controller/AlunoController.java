@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.julianotorquato07.bootlab.model.Aluno;
 import com.julianotorquato07.bootlab.repository.AlunoRepository;
 
+@Secured("USER")
 @RestController
 @RequestMapping("/api/v1")
 public class AlunoController {
