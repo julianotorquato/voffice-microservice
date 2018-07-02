@@ -1,13 +1,9 @@
 server:
   port: 8888
 
-management:
-  security:
-    enabled: false
-
 spring:
   cloud:
     config:
       server:
         git:
-          uri: file://home/juliano/Development/workspace/curso/voffice/voffice-microservice/config-repo
+          uri: file://home/juliano/Development/workspace/curso/voffice/voffice-microservice/cloud-lab01/config-repo
