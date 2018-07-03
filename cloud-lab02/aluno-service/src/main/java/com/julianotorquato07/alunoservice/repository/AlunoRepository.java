@@ -4,5 +4,5 @@ import com.julianotorquato07.alunoservice.domain.Aluno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-@RepositoryRestResource(collectionResourceRel = "aluno", path = "aluno")
+@RepositoryRestResource(collectionResourceRel = "/alunos", path = "alunos")
 public interface AlunoRepository extends JpaRepository<Aluno, Long> { }
